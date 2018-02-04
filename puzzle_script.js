@@ -19,6 +19,24 @@ function tableText(tableCell, i, j) {
     alert("Number: " + tableCell.innerHTML + " " +"Column: " + i + " " +"Row: " + j);
 }
 
+function validateSwap(i, j)
+{
+    if(
+        (i == (x+1) && j == y) ||
+        (i == (x-1) && j == y) ||
+        (i == x && j == (y+1)) ||
+        (i == x && j == (y-1))
+
+        )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function swap(tableCell, i , j)
 {
     if(validateSwap(i, j))
