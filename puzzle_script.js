@@ -1,8 +1,12 @@
 var table = document.getElementById("tableID");
+var dialog = document.getElementById("dialog");
 var x = 1;
 var y = 1;
 
 window.onload = function() {
+
+    dialog.innerHTML = "Select a piece to swap.";
+    
     if (table != null) {
         for (var i = 0; i < table.rows.length; i++) {
             for (var j = 0; j < table.rows[i].cells.length; j++) {
@@ -16,7 +20,7 @@ window.onload = function() {
 }
 
 function tableText(tableCell, i, j) {
-    alert("Number: " + tableCell.innerHTML + " " +"Column: " + i + " " +"Row: " + j);
+    console.log("Number: " + tableCell.innerHTML + " " +"Column: " + i + " " +"Row: " + j);
 }
 
 function validateSwap(i, j)
@@ -41,14 +45,21 @@ function swap(tableCell, i , j)
 {
     if(validateSwap(i, j))
     {
-        alert(validateSwap(i, j));
         table.rows[x].cells[y].innerHTML = table.rows[i].cells[j].innerHTML;
         table.rows[i].cells[j].innerHTML = "";
         x = i;
         y = j;
+
+        dialog.innerHTML = "Piece Moved!";
     }
     else
     {
-        alert("ILLEGAL MOVE");
+        dialog.innerHTML = "Error: You can not make this move.";
+        console.log("ILLEGAL MOVE");
     }
+}
+
+function solve()
+{
+
 }
