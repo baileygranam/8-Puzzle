@@ -2,6 +2,7 @@ var table = document.getElementById("tableID");
 var dialog = document.getElementById("dialog");
 var x = 1;
 var y = 1;
+var nums = [1,2,3,4,5,6,7,8,""];
 
 window.onload = function() {
 
@@ -61,5 +62,30 @@ function swap(tableCell, i , j)
 
 function solve()
 {
+
+}
+
+function shuffle() {
+    var j, x, i;
+    var z =0;
+    for (i = nums.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = nums[i];
+        nums[i] = nums[j];
+        nums[j] = x;
+
+        console.log(nums[i]);
+    }
+
+
+    for(i=0; i < 3 ;i++)
+    {
+        for(j=0; j < 3; j++)
+        {
+            table.rows[i].cells[j].innerHTML = nums[z];
+            z++;
+        }
+    }
+
 
 }
