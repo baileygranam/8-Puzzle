@@ -1,7 +1,7 @@
 var table = document.getElementById("tableID");
 var dialog = document.getElementById("dialog");
-var x = 1;
-var y = 1;
+var empty_x = 1;
+var empty_y = 1;
 var nums = [1,2,3,4,5,6,7,8,""];
 
 window.onload = function() {
@@ -27,10 +27,10 @@ function tableText(tableCell, i, j) {
 function validateSwap(i, j)
 {
     if(
-        (i == (x+1) && j == y) ||
-        (i == (x-1) && j == y) ||
-        (i == x && j == (y+1)) ||
-        (i == x && j == (y-1))
+        (i == (empty_x+1) && j == empty_y) ||
+        (i == (empty_x-1) && j == empty_y) ||
+        (i == empty_x && j == (empty_y+1)) ||
+        (i == empty_x && j == (empty_y-1))
 
         )
     {
@@ -46,10 +46,10 @@ function swap(tableCell, i , j)
 {
     if(validateSwap(i, j))
     {
-        table.rows[x].cells[y].innerHTML = table.rows[i].cells[j].innerHTML;
+        table.rows[empty_x].cells[empty_y].innerHTML = table.rows[i].cells[j].innerHTML;
         table.rows[i].cells[j].innerHTML = "";
-        x = i;
-        y = j;
+        empty_x = i;
+        empty_y = j;
 
         dialog.innerHTML = "Piece Moved!";
     }
@@ -58,11 +58,6 @@ function swap(tableCell, i , j)
         dialog.innerHTML = "Error: You can not make this move.";
         console.log("ILLEGAL MOVE");
     }
-}
-
-function solve()
-{
-
 }
 
 function shuffle() {
@@ -86,8 +81,8 @@ function shuffle() {
         {
             if(nums[z] == "")
             {
-                x = i;
-                y = j;
+               empty_x = i;
+               empty_y = j;
             }
 
             table.rows[i].cells[j].innerHTML = nums[z];
