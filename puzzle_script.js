@@ -67,8 +67,10 @@ function solve()
 
 function shuffle() {
     var j, x, i;
-    var z =0;
-    for (i = nums.length - 1; i > 0; i--) {
+    var z = 0;
+
+    for (i = nums.length - 1; i >= 0; i--) 
+    {
         j = Math.floor(Math.random() * (i + 1));
         x = nums[i];
         nums[i] = nums[j];
@@ -78,10 +80,16 @@ function shuffle() {
     }
 
 
-    for(i=0; i < 3 ;i++)
+    for(i=0; i < 3; i++)
     {
         for(j=0; j < 3; j++)
         {
+            if(nums[z] == "")
+            {
+                x = i;
+                y = j;
+            }
+
             table.rows[i].cells[j].innerHTML = nums[z];
             z++;
         }
