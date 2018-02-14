@@ -1,5 +1,6 @@
 var table = document.getElementById("tableID");
 var dialog = document.getElementById("dialog");
+var colrowclick = document.getElementById("col-row-click");
 var empty_x = 1;
 var empty_y = 1;
 var nums = [1,2,3,4,5,6,7,8,""];
@@ -22,6 +23,7 @@ window.onload = function() {
 
 function tableText(tableCell, i, j) {
     console.log("Number: " + tableCell.innerHTML + " " +"Column: " + i + " " +"Row: " + j);
+    colrowclick.innerHTML = "Number: " + tableCell.innerHTML + " " +"Column: " + i + " " +"Row: " + j;
 }
 
 function validateSwap(i, j)
